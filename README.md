@@ -14,15 +14,36 @@ AI proposal writer for consultants and agencies. Fill out a short intake form, g
 
 - Node.js 20+
 - npm
-- OpenAI API key
+- Free [Neon](https://neon.tech) account (Postgres database)
+- OpenAI API key (optional — demo mode works without it)
 
 ## Setup
+
+### 1. Create a free Postgres database (Neon)
+
+1. Go to [neon.tech](https://neon.tech) and sign up (parent can help)
+2. Click **New Project** → name it `pitchdraft`
+3. On the dashboard, copy the **connection string** (URI)
+4. It looks like: `postgresql://user:pass@ep-xxx.neon.tech/neondb?sslmode=require`
+
+### 2. Configure your app
 
 ```bash
 cd ~/Projects/pitchdraft
 cp .env.example .env
-# Edit .env with your OPENAI_API_KEY and NEXTAUTH_SECRET
+```
 
+Open `.env` and paste your Neon URL into `DATABASE_URL`.
+
+Generate a secret for `NEXTAUTH_SECRET`:
+
+```bash
+openssl rand -base64 32
+```
+
+### 3. Install and run
+
+```bash
 npm install
 npm run db:push
 npm run dev
@@ -30,19 +51,21 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## Monetization ideas (next steps)
+## Deploy on Vercel
 
-1. **Free tier**: 2 proposals/month
-2. **Pro ($29/mo)**: unlimited proposals + custom templates
-3. **Team ($79/mo)**: shared library, brand kit, approval workflow
-4. **Cold outreach**: target freelance strategists, boutique agencies on LinkedIn
+1. Push code to GitHub
+2. Import project on [vercel.com](https://vercel.com)
+3. Add these **Environment Variables** in Vercel → Settings:
 
-## Deploy
+| Variable | Value |
+|----------|--------|
+| `DATABASE_URL` | Same Neon connection string |
+| `NEXTAUTH_SECRET` | Same secret as local (or generate a new one) |
+| `NEXTAUTH_URL` | `https://pitchdraft-five.vercel.app` |
 
-- **Vercel** for Next.js
-- Swap SQLite for **Postgres** (Neon/Supabase) in production:
-  - Update `provider` in `prisma/schema.prisma` to `postgresql`
-  - Set `DATABASE_URL` to your Postgres connection string
+4. **Redeploy** after adding variables (Deployments → ⋯ → Redeploy)
+
+Accounts and proposals will now save online.
 
 ## Project structure
 
