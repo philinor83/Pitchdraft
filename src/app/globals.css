@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-50: #f5f3ff;
+  --color-brand-100: #ede9fe;
+  --color-brand-200: #ddd6fe;
+  --color-brand-300: #c4b5fd;
+  --color-brand-400: #a78bfa;
+  --color-brand-500: #8b5cf6;
+  --color-brand-600: #7c3aed;
+  --color-brand-700: #6d28d9;
+  --color-brand-800: #5b21b6;
+  --color-brand-900: #4c1d95;
+  --color-brand-950: #2e1065;
+
+  --color-accent-400: #fb923c;
+  --color-accent-500: #f97316;
+  --color-accent-600: #ea580c;
+}
+
+body {
+  @apply min-h-screen text-slate-900 antialiased;
+  background:
+    radial-gradient(ellipse 70% 50% at 10% 0%, rgb(167 139 250 / 0.35), transparent),
+    radial-gradient(ellipse 50% 40% at 90% 10%, rgb(244 114 182 / 0.2), transparent),
+    radial-gradient(ellipse 60% 50% at 50% 100%, rgb(99 102 241 / 0.2), transparent),
+    linear-gradient(to bottom, #faf5ff, #f8fafc);
+  background-attachment: fixed;
+}
+
+.card-shine {
+  background: linear-gradient(135deg, rgb(255 255 255 / 0.95), rgb(255 255 255 / 0.85));
+  backdrop-filter: blur(12px);
+}
+
+.glass-header {
+  @apply border-b border-white/20 bg-white/70 backdrop-blur-xl;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-violet-500/25 transition hover:from-violet-500 hover:to-indigo-500 hover:shadow-violet-500/35;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-slate-300 hover:bg-slate-50;
+}
+
+.input-field {
+  @apply w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10;
+}
+
+.auth-card {
+  @apply rounded-2xl border border-slate-200/80 bg-white p-8 shadow-xl shadow-slate-200/50;
+}
+
+.form-section-violet {
+  @apply overflow-hidden rounded-2xl border border-violet-200/80 bg-white shadow-lg shadow-violet-100/50;
+}
+
+.form-section-indigo {
+  @apply overflow-hidden rounded-2xl border border-indigo-200/80 bg-white shadow-lg shadow-indigo-100/50;
+}
+
+.form-section-header-violet {
+  @apply border-b border-violet-100 bg-gradient-to-r from-violet-500 via-purple-500 to-fuchsia-500 px-6 py-4;
+}
+
+.form-section-header-indigo {
+  @apply border-b border-indigo-100 bg-gradient-to-r from-indigo-500 via-violet-500 to-purple-500 px-6 py-4;
+}
+
+.tone-pill {
+  @apply rounded-xl border-2 px-3 py-2 text-xs font-semibold transition;
+}
+
+.tone-pill-active {
+  @apply border-transparent text-white shadow-md;
+}
+
+.tone-pill-inactive {
+  @apply border-slate-200 bg-white text-slate-600 hover:border-violet-300 hover:bg-violet-50;
+}
+
+.proposal-markdown h1 {
+  @apply mb-4 text-3xl font-bold text-slate-900;
+}
+
+.proposal-markdown h2 {
+  @apply mb-3 mt-8 text-xl font-semibold text-slate-900;
+}
+
+.proposal-markdown h3 {
+  @apply mb-2 mt-6 text-lg font-semibold text-slate-800;
+}
+
+.proposal-markdown p {
+  @apply mb-4 leading-7 text-slate-700;
+}
+
+.proposal-markdown ul {
+  @apply mb-4 list-disc space-y-2 pl-6 text-slate-700;
+}
+
+.proposal-markdown ol {
+  @apply mb-4 list-decimal space-y-2 pl-6 text-slate-700;
+}
+
+.proposal-markdown li {
+  @apply leading-7;
+}
+
+.proposal-markdown strong {
+  @apply font-semibold text-slate-900;
+}
+
+.proposal-markdown blockquote {
+  @apply mb-4 rounded-r-lg border-l-4 border-violet-400 bg-violet-50 px-4 py-2 text-sm text-violet-900;
+}
