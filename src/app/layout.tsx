@@ -15,6 +15,9 @@ export const metadata: Metadata = {
     "Turn a short form into a polished client proposal. Built for young creators and side hustlers.",
 };
 
+// Avoid prerender errors with NextAuth + database during Vercel build
+export const dynamic = "force-dynamic";
+
 export default function RootLayout({
   children,
 }: Readonly<{
